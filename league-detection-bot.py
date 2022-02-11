@@ -36,7 +36,9 @@ async def on_message(message):
                     minutes = divmod(seconds, 60)[0]
                     print("Minutes: ", minutes)
                     if minutes > 30.0:
-                        await message.channel.send("GET A FUCKING JOB YOU DWEEB <@" + str(member.id) + ">")
+                        await message.channel.send("It has been 30 minutes <@" + str(member.id) + "> stop playing league.")
+                        await member.send('30 time limit has expired, banned.')
+                        await member.ban(delete_message_days=0, reason='playing league')
 
 
 client.run(os.getenv('TOKEN'))
